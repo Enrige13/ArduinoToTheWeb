@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Live Barchart of the FH St. Pölten</title>
+
+        <link href="/css/main.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Live Arduino Data!</h1>
+            <p>Get the Information here.</p>
+
+            <form id="score">
+                <input type="hidden" name="data">
+                <input type="submit">
+            </form>
+
+        </div>
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script>
+        var socket = io();
+        var current = "0";
+        var dataState = document.getElementById('data-state');
+
+        socket.on("data", function(data){
+
+        })
+    </script>
+
+</body>
+</html>
