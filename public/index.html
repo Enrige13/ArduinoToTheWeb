@@ -18,9 +18,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
         <script>
             var socket = io.connect('http://localhost:4000'); //connect to server
-           
+
             socket.on('data', function(temp) { //Read data
-                //console.log(temp);
+                barData.push(temp.data);
+                console.log(temp);
             });
 
             let margin = {
@@ -42,16 +43,14 @@
                 .append('g')
                 .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
-            let barData = [300,
-                201,
-                40,
-                25,
-                45,
-                55
-            ];
+            var barData = [];
             let barOffset = 5;
             let barWidth = 50;
             const n = 5;
+
+            /*for(let i = 0; i < n; i++) {
+                barData.push(Math.floor(Math.random() * 100));
+            }*/
 
             // SCALE: From Input Domain to Output Range
             let yScale = d3
@@ -117,6 +116,8 @@
                 .attr('class', 'xAxis')
                 .attr('transform', `translate(0, ${height})`)
                 .call(xAxis);*/
+
+            barData = [];
         </script>
     </body>
 </html>
